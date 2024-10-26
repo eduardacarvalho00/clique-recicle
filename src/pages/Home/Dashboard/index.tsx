@@ -10,10 +10,7 @@ import {
 	Icon,
 	Text,
 	Button,
-	Center,
-	Spinner,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
 import { TableItem, TableItemGrouped } from "./TableItem";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import { DashboardProps } from "@interfaces/dashboard";
@@ -31,19 +28,139 @@ const THead = ({ text }: THeadeProps) => {
 };
 
 export const Dashboard = () => {
-	const [orders, setOrders] = useState<DashboardProps[]>([]);
-	const [isLoading, setIsloading] = useState<boolean>(false);
+	// const [orders, setOrders] = useState<DashboardProps[]>([]);
+	// const [isLoading, setIsloading] = useState<boolean>(false);
 
-	useEffect(() => {
-		try {
-			setIsloading(true);
-			fetch("http://localhost:3000/api/v1/orders/")
-				.then((response) => response.json())
-				.then((data) => setOrders(data));
-		} finally {
-			setIsloading(false);
-		}
-	}, []);
+	// useEffect(() => {
+	// 	try {
+	// 		setIsloading(true);
+	// 		fetch("http://localhost:3000/api/v1/orders/")
+	// 			.then((response) => response.json())
+	// 			.then((data) => setOrders(data));
+	// 	} finally {
+	// 		setIsloading(false);
+	// 	}
+	// }, []);
+	const mockDashboard: DashboardProps[] = [
+		{
+			routeId: 1,
+			user: "João Silva",
+			date: "08/12/2024",
+			status: "Scheduled",
+			freight: 30.0,
+			address: "Museu de Arte de São Paulo Assis Chateaubriand",
+		},
+		{
+			routeId: 1,
+			date_schedule: "10/25/2024",
+			user: "Maria Santos",
+			date: "08/20/2024",
+			status: "Scheduled",
+			freight: 45.5,
+			address: "Beco do Batman, R. Medeiros de Albuquerque",
+		},
+		{
+			routeId: 1,
+			date_schedule: "10/25/2024",
+			user: "Pedro Almeida",
+			date: "10/12/2024",
+			status: "Scheduled",
+			freight: 25.0,
+			address: "Shopping Iguatemi São Paulo, Av. Brig. Faria Lima",
+		},
+		{
+			user: "Carlos Pereira",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 52.75,
+			address: "Rua do Sol, 1213 - São Paulo/SP",
+		},
+		{
+			routeId: 3,
+			user: "Bruno Costa",
+			date: "08/12/2024",
+			status: "Done",
+			freight: 32.5,
+			address: "Avenida Central, 1717 - São Paulo/SP",
+		},
+		{
+			user: "Luiza Silva",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 48.0,
+			address: "Rua da Liberdade, 1919 - São Paulo/SP",
+		},
+		{
+			user: "Carlos Pereira",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 52.75,
+			address: "Rua do Sol, 1213 - São Paulo/SP",
+		},
+		{
+			routeId: 3,
+			user: "Bruno Costa",
+			date: "08/12/2024",
+			status: "Done",
+			freight: 32.5,
+			address: "Avenida Central, 1717 - São Paulo/SP",
+		},
+		{
+			user: "Luiza Silva",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 48.0,
+			address: "Rua da Liberdade, 1919 - São Paulo/SP",
+		},
+		{
+			routeId: 3,
+			date_schedule: "10/25/2024",
+			user: "Gustavo Almeida",
+			date: "08/12/2024",
+			status: "Done",
+			freight: 35.0,
+			address: "Avenida dos Estados, 2121 - São Paulo/SP",
+		},
+		{
+			routeId: 3,
+			user: "Fernanda Santos",
+			date: "02/02/2024",
+			status: "Done",
+			freight: 39.75,
+			address: "Rua da Paz, 2323 - São Paulo/SP",
+		},
+		{
+			date_schedule: "10/25/2024",
+			user: "Juliana Silva",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 42.0,
+			address: "Rua da Vitória, 2727 - São Paulo/SP",
+		},
+		{
+			user: "Felipe Almeida",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 36.5,
+			address: "Avenida Independência, 2929 - São Paulo/SP",
+		},
+		{
+			routeId: 3,
+			date_schedule: "10/25/2024",
+			user: "Amanda Santos",
+			date: "08/12/2024",
+			status: "Done",
+			freight: 50.0,
+			address: "Rua da Paz, 3131 - São Paulo/SP",
+		},
+		{
+			user: "Gabriel Costa",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 33.5,
+			address: "Avenida Brasil, 3333 - São Paulo/SP",
+		},
+	];
 
 	type GroupedData = {
 		withRouteId: Record<number, DashboardProps[]>;
@@ -67,12 +184,8 @@ export const Dashboard = () => {
 		);
 	};
 
-	const { withRouteId, withoutRouteId } = groupDataByRouteId(orders);
-	return isLoading ? (
-		<Center position="absolute" h="90%" w="97%">
-			<Spinner color="green" />
-		</Center>
-	) : (
+	const { withRouteId, withoutRouteId } = groupDataByRouteId(mockDashboard);
+	return (
 		<>
 			<TableContainer
 				maxH={{ base: "", "2xl": "30rem" }}

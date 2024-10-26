@@ -65,9 +65,6 @@ export function Home() {
 						</TabPanel>
 						<SchedulementsTabPanel />
 						<TabPanel w="100%">
-							<Flex w="100%" justifyContent="end" my="1rem">
-								<Button text="Generate route" size="md" />
-							</Flex>
 							<Dashboard />
 						</TabPanel>
 					</TabPanels>

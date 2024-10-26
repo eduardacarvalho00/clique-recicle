@@ -43,8 +43,10 @@ export const TableItemGrouped: React.FC<{ data: DashboardProps[] }> = ({
 				<a
 					href="https://maps.app.goo.gl/ptTuYuRTVqmTXpdc6"
 					style={{ textDecoration: "underline", color: "blue" }}
+					target="_blank"
+					rel="noreferrer"
 				>
-					Ver Rota
+					See Route
 				</a>
 			</Td>
 		</Tr>
