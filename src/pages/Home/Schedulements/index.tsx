@@ -7,8 +7,22 @@ import {
 	CardBody,
 	Text,
 } from "@chakra-ui/react";
+interface SpanProps {
+	text: string;
+}
 
 export const SchedulementsTabPanel = () => {
+	const Span = ({ text }: SpanProps) => {
+		const color =
+			text === "Pending"
+				? "orange"
+				: text === "Scheduled"
+					? "blue"
+					: text === "Done"
+						? "green"
+						: "color.primary";
+		return <span style={{ color: color, fontWeight: "normal" }}>{text}</span>;
+	};
 	return (
 		<TabPanel>
 			<VStack>
@@ -16,33 +30,58 @@ export const SchedulementsTabPanel = () => {
 					<CardHeader>
 						<Heading size="md">Schedule day: Pending</Heading>
 					</CardHeader>
-					<CardBody>
+					<CardBody fontWeight={500}>
 						<VStack align="start">
-							<Text>Status: Pending - awaiting route confirmation</Text>
-							<Text>Pick up order: 21284</Text>
 							<Text>
-								Address: Av. Brig. Faria Lima, 3732 - 18º andar - Itaim Bibi,
-								São Paulo - SP, 04538-132
+								Status: <Span text="Pending" /> - Awaiting route confirmation
 							</Text>
-							<Text>Freight: R$ 10,00</Text>
-							<Text>Type of pick up: Medium</Text>
+							<Text>
+								Pick up order:
+								<Span text="21284" />
+							</Text>
+							<Text>
+								Address:{" "}
+								<Span
+									text="Av. Brig. Faria Lima, 3732 - 18º andar - Itaim Bibi,
+São Paulo - SP, 04538-132"
+								/>
+							</Text>
+							<Text>
+								Freight: <Span text="R$ 10,00" />
+							</Text>
+							<Text>
+								Type of pick up: <Span text="Medium" />
+							</Text>
 						</VStack>
 					</CardBody>
 				</Card>
 				<Card>
 					<CardHeader>
-						<Heading size="md">Schedule day: 10/24/2024 18:00</Heading>
+						<Heading size="md">
+							Schedule day: <Span text="10/24/2024 18:00" />
+						</Heading>
 					</CardHeader>
-					<CardBody>
+					<CardBody fontWeight={500}>
 						<VStack align="start">
-							<Text>Status: Done</Text>
-							<Text>Pick up order: 21284</Text>
 							<Text>
-								Address: Av. Brig. Faria Lima, 3732 - 18º andar - Itaim Bibi,
-								São Paulo - SP, 04538-132
+								Status: <Span text="Done" />
 							</Text>
-							<Text>Freight: R$ 10,00</Text>
-							<Text>Type of pick up: Medium</Text>
+							<Text>
+								Pick up order: <Span text="124" />
+							</Text>
+							<Text>
+								Address:{" "}
+								<Span
+									text="Av. Brig. Faria Lima, 3732 - 18º andar - Itaim Bibi,
+São Paulo - SP, 04538-132"
+								/>
+							</Text>
+							<Text>
+								Freight: <Span text="R$ 8,00" />
+							</Text>
+							<Text>
+								Type of pick up: <Span text="Medium" />
+							</Text>
 						</VStack>
 					</CardBody>
 				</Card>

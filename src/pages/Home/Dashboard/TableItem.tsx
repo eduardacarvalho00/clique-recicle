@@ -6,11 +6,19 @@ interface TableItemProps {
 }
 
 export const TableItem = ({ data }: TableItemProps) => {
+	const color =
+		data.status === "Pending"
+			? "orange"
+			: data.status === "Scheduled"
+				? "blue"
+				: "green";
 	return (
 		<Tr>
-			<Td>{data.user}</Td>
 			<Td>{data.date}</Td>
-			<Td>{data.status}</Td>
+			<Td>{data.user}</Td>
+			<Td color={color}>{data.status}</Td>
+			<Td>{data.date_schedule ? data.date_schedule : "Schedule pending"}</Td>
+
 			<Td>R${data.freight}</Td>
 			<Td>{data.address}</Td>
 		</Tr>
