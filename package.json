@@ -44,5 +44,8 @@
 		"ts-prune": "^0.10.3",
 		"typescript": "^5.4.5",
 		"vite": "^5.2.0"
-	}
+	},
+  "proxy": {
+    "/api": "http://localhost:3000"
+  }
 }

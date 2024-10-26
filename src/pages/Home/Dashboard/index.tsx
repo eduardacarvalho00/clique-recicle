@@ -11,6 +11,7 @@ import {
 	Text,
 	Button,
 } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 import { TableItem, TableItemGrouped } from "./TableItem";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import { DashboardProps } from "@interfaces/dashboard";
@@ -18,6 +19,8 @@ import { DashboardProps } from "@interfaces/dashboard";
 interface THeadeProps {
 	text: string;
 }
+
+
 
 const THead = ({ text }: THeadeProps) => {
 	return (
@@ -28,6 +31,15 @@ const THead = ({ text }: THeadeProps) => {
 };
 
 export const Dashboard = () => {
+  const [ orders, setOrders ] = useState<DashboardProps[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/v1/orders/")
+      .then((response) => response.json())
+      .then((data) => setOrders(data));
+  }, []);
+
+  console.log(orders);
 	const mockUsersRank: DashboardProps[] = [
 		{
 			routeId: 1,
