@@ -38,10 +38,10 @@ export const Profile = () => {
 							<Heading size="md">Level 1: Coupon of R$10 at Ifood</Heading>
 						</CardHeader>
 
-						<CardBody fontWeight={500}>
+						<CardBody display="flex" fontWeight={500} justifyContent="center">
 							<Button
 								text="Generate coupon"
-								justifyContent="center"
+								alignSelf="center"
 								w={{ base: "100%", "2xl": "15rem" }}
 							/>
 						</CardBody>
