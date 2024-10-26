@@ -12,11 +12,7 @@ import {
 	Button,
 } from "@chakra-ui/react";
 import { TableItem } from "./TableItem";
-import {
-	MdArrowBackIos,
-	MdArrowForwardIos,
-	MdKeyboardArrowDown,
-} from "react-icons/md";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import { DashboardProps } from "@interfaces/dashboard";
 
 interface THeadeProps {
@@ -26,10 +22,7 @@ interface THeadeProps {
 const THead = ({ text }: THeadeProps) => {
 	return (
 		<Th color="color.primary" fontSize={{ base: 16, "2xl": 18 }}>
-			<HStack>
-				<Text>{text}</Text>
-				<MdKeyboardArrowDown />
-			</HStack>
+			<Text>{text}</Text>
 		</Th>
 	);
 };
@@ -37,129 +30,213 @@ const THead = ({ text }: THeadeProps) => {
 export const Dashboard = () => {
 	const mockUsersRank: DashboardProps[] = [
 		{
+			routeId: 1,
 			user: "João Silva",
 			date: "08/12/2024",
-			status: "Pending",
+			status: "Scheduled",
 			freight: 30.0,
 			address: "Rua das Flores, 123 - São Paulo/SP",
 		},
 		{
+			routeId: 1,
 			date_schedule: "10/25/2024",
 			user: "Maria Santos",
 			date: "08/20/2024",
 			status: "Scheduled",
 			freight: 45.5,
-			address: "Avenida Brasil, 456 - Rio de Janeiro/RJ",
+			address: "Avenida Brasil, 456 - São Paulo/RJ",
 		},
 		{
+			routeId: 1,
 			date_schedule: "10/25/2024",
 			user: "Pedro Almeida",
 			date: "10/12/2024",
-			status: "Done",
+			status: "Scheduled",
 			freight: 25.0,
-			address: "Rua da Paz, 789 - Belo Horizonte/MG",
+			address: "Rua da Paz, 789 - São Paulo/SP",
 		},
 		{
+			routeId: 1,
 			user: "Ana Oliveira",
 			date: "08/12/2024",
-			status: "Pending",
+			status: "Scheduled",
 			freight: 38.25,
 			address: "Avenida Paulista, 1011 - São Paulo/SP",
 		},
 		{
-			date_schedule: "10/25/2024",
+			routeId: 2,
 			user: "Carlos Pereira",
 			date: "08/12/2024",
-			status: "Scheduled",
+			status: "Pending",
 			freight: 52.75,
-			address: "Rua do Sol, 1213 - Porto Alegre/RS",
+			address: "Rua do Sol, 1213 - São Paulo/SP",
 		},
 		{
+			routeId: 1,
 			date_schedule: "10/25/2024",
 			user: "Laura Santos",
 			date: "09/30/2024",
-			status: "Done",
+			status: "Scheduled",
 			freight: 40.0,
-			address: "Rua das Acácias, 1515 - Curitiba/PR",
+			address: "Rua das Acácias, 1515 - São Paulo/SP",
 		},
 		{
+			routeId: 3,
 			user: "Bruno Costa",
 			date: "08/12/2024",
-			status: "Pending",
+			status: "Done",
 			freight: 32.5,
-			address: "Avenida Central, 1717 - Salvador/BA",
+			address: "Avenida Central, 1717 - São Paulo/SP",
 		},
 		{
-			date_schedule: "10/25/2024",
+			routeId: 2,
 			user: "Luiza Silva",
 			date: "08/12/2024",
-			status: "Scheduled",
+			status: "Pending",
 			freight: 48.0,
-			address: "Rua da Liberdade, 1919 - Fortaleza/CE",
+			address: "Rua da Liberdade, 1919 - São Paulo/SP",
 		},
 		{
+			routeId: 1,
+			date_schedule: "10/25/2024",
+			user: "Maria Santos",
+			date: "08/20/2024",
+			status: "Scheduled",
+			freight: 45.5,
+			address: "Avenida Brasil, 456 - São Paulo/RJ",
+		},
+		{
+			routeId: 1,
+			date_schedule: "10/25/2024",
+			user: "Pedro Almeida",
+			date: "10/12/2024",
+			status: "Scheduled",
+			freight: 25.0,
+			address: "Rua da Paz, 789 - São Paulo/SP",
+		},
+		{
+			routeId: 1,
+			user: "Ana Oliveira",
+			date: "08/12/2024",
+			status: "Scheduled",
+			freight: 38.25,
+			address: "Avenida Paulista, 1011 - São Paulo/SP",
+		},
+		{
+			routeId: 2,
+			user: "Carlos Pereira",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 52.75,
+			address: "Rua do Sol, 1213 - São Paulo/SP",
+		},
+		{
+			routeId: 1,
+			date_schedule: "10/25/2024",
+			user: "Laura Santos",
+			date: "09/30/2024",
+			status: "Scheduled",
+			freight: 40.0,
+			address: "Rua das Acácias, 1515 - São Paulo/SP",
+		},
+		{
+			routeId: 3,
+			user: "Bruno Costa",
+			date: "08/12/2024",
+			status: "Done",
+			freight: 32.5,
+			address: "Avenida Central, 1717 - São Paulo/SP",
+		},
+		{
+			routeId: 2,
+			user: "Luiza Silva",
+			date: "08/12/2024",
+			status: "Pending",
+			freight: 48.0,
+			address: "Rua da Liberdade, 1919 - São Paulo/SP",
+		},
+		{
+			routeId: 3,
 			date_schedule: "10/25/2024",
 			user: "Gustavo Almeida",
 			date: "08/12/2024",
 			status: "Done",
 			freight: 35.0,
-			address: "Avenida dos Estados, 2121 - Recife/PE",
+			address: "Avenida dos Estados, 2121 - São Paulo/SP",
 		},
 		{
+			routeId: 3,
 			user: "Fernanda Santos",
 			date: "02/02/2024",
-			status: "Pending",
+			status: "Done",
 			freight: 39.75,
-			address: "Rua da Paz, 2323 - Belém/PA",
+			address: "Rua da Paz, 2323 - São Paulo/SP",
 		},
 		{
+			routeId: 1,
 			date_schedule: "10/25/2024",
 			user: "Ricardo Costa",
 			date: "08/12/2024",
 			status: "Scheduled",
 			freight: 51.25,
-			address: "Avenida das Américas, 2525 - Manaus/AM",
+			address: "Avenida das Américas, 2525 - São Paulo/SP",
 		},
 		{
+			routeId: 4,
 			date_schedule: "10/25/2024",
 			user: "Juliana Silva",
 			date: "08/12/2024",
-			status: "Done",
+			status: "Pending",
 			freight: 42.0,
-			address: "Rua da Vitória, 2727 - Goiânia/GO",
+			address: "Rua da Vitória, 2727 - São Paulo/SP",
 		},
 		{
+			routeId: 4,
 			user: "Felipe Almeida",
 			date: "08/12/2024",
 			status: "Pending",
 			freight: 36.5,
-			address: "Avenida Independência, 2929 - Brasília/DF",
+			address: "Avenida Independência, 2929 - São Paulo/SP",
 		},
 		{
+			routeId: 3,
 			date_schedule: "10/25/2024",
 			user: "Amanda Santos",
 			date: "08/12/2024",
-			status: "Scheduled",
+			status: "Done",
 			freight: 50.0,
-			address: "Rua da Paz, 3131 - Campo Grande/MS",
+			address: "Rua da Paz, 3131 - São Paulo/SP",
 		},
 		{
-			date_schedule: "10/25/2024",
+			routeId: 2,
 			user: "Gabriel Costa",
 			date: "08/12/2024",
-			status: "Done",
+			status: "Pending",
 			freight: 33.5,
-			address: "Avenida Brasil, 3333 - Cuiabá/MT",
+			address: "Avenida Brasil, 3333 - São Paulo/SP",
 		},
 		{
+			routeId: 1,
 			user: "Letícia Silva",
 			date: "08/12/2024",
-			status: "Pending",
+			status: "Scheduled",
 			freight: 37.25,
-			address: "Rua da Liberdade, 3535 - Macapá/AP",
+			address: "Rua da Liberdade, 3535 - São Paulo/SP",
 		},
 	];
 
+	type GroupedData = Record<number, DashboardProps[]>;
+
+	// Função para agrupar os dados por routeId
+	const groupDataByRouteId = (data: DashboardProps[]): GroupedData => {
+		return data.reduce<GroupedData>((acc, item) => {
+			if (!acc[item.routeId]) acc[item.routeId] = []; // Se não existe o routeId, inicializa como array vazio
+			acc[item.routeId].push(item); // Adiciona o item ao array do routeId
+			return acc;
+		}, {});
+	};
+
+	const groupedData = groupDataByRouteId(mockUsersRank);
 	return (
 		<>
 			<TableContainer
@@ -179,7 +256,7 @@ export const Dashboard = () => {
 				}}
 			>
 				<Table
-					size={{ base: "sm", "2xl": "md" }}
+					size={{ base: "sm", "2xl": "sm" }}
 					colorScheme="green"
 					variant="simple"
 					borderRadius="6px"
@@ -196,11 +273,13 @@ export const Dashboard = () => {
 							<THead text="Date Schedule" />
 							<THead text="Freight" />
 							<THead text="Address" />
+							<THead text="Route" />
 						</Tr>
 					</Thead>
 					<Tbody>
-						{mockUsersRank.map((item) => (
-							<TableItem key={item.user} data={item} />
+						{Object.values(groupedData).map((group, index) => (
+							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+							<TableItem key={index} data={group} />
 						))}
 					</Tbody>
 				</Table>

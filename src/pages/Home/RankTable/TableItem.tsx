@@ -23,7 +23,6 @@ export const TableItem = ({ data }: TableItemProps) => {
 			</Td>
 			<Td>{data.name}</Td>
 			<Td>{data.level}</Td>
-			<Td>{data.points}</Td>
 		</Tr>
 	);
 };

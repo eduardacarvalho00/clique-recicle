@@ -34,6 +34,10 @@ export function Home() {
 
 					<TabPanels h="100%">
 						<TabPanel px="1.5rem" h="100%" mt="1rem">
+							<Text textAlign="center" fontSize={20} fontWeight={700}>
+								You're at level: <span style={{ color: "#519872" }}>1</span>
+							</Text>
+							<Divider my="1rem" />
 							<Text fontWeight={600} mb="0.5rem">
 								Global ranking:
 							</Text>
@@ -45,7 +49,11 @@ export function Home() {
 									textAlign={{ base: "center", "2xl": "start" }}
 									fontSize={{ base: 16, "2xl": 18 }}
 								>
-									Schedule a new pick-up in just a few clicks:
+									Schedule a new pick-up in just a few{" "}
+									<span style={{ color: "#519872", fontWeight: 700 }}>
+										clicks
+									</span>
+									:
 								</Text>
 								<Button
 									mb="2rem"

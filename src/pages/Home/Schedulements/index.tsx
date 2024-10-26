@@ -36,8 +36,7 @@ export const SchedulementsTabPanel = () => {
 								Status: <Span text="Pending" /> - Awaiting route confirmation
 							</Text>
 							<Text>
-								Pick up order:
-								<Span text="21284" />
+								Pick up order: <Span text="#21284" />
 							</Text>
 							<Text>
 								Address:{" "}
@@ -67,7 +66,7 @@ São Paulo - SP, 04538-132"
 								Status: <Span text="Done" />
 							</Text>
 							<Text>
-								Pick up order: <Span text="124" />
+								Pick up order: <Span text="#124" />
 							</Text>
 							<Text>
 								Address:{" "}

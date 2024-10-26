@@ -2,25 +2,65 @@ import { Tr, Td } from "@chakra-ui/react";
 import { DashboardProps } from "@interfaces/dashboard";
 
 interface TableItemProps {
-	data: DashboardProps;
+	data: DashboardProps[];
 }
 
 export const TableItem = ({ data }: TableItemProps) => {
-	const color =
-		data.status === "Pending"
-			? "orange"
-			: data.status === "Scheduled"
-				? "blue"
-				: "green";
 	return (
 		<Tr>
-			<Td>{data.date}</Td>
-			<Td>{data.user}</Td>
-			<Td color={color}>{data.status}</Td>
-			<Td>{data.date_schedule ? data.date_schedule : "Schedule pending"}</Td>
-
-			<Td>R${data.freight}</Td>
-			<Td>{data.address}</Td>
+			<Td>
+				{data.map((item) => (
+					<div key={item.user}>{item.date}</div>
+				))}
+			</Td>
+			<Td>
+				{data.map((item) => (
+					<div key={item.user}>{item.user}</div>
+				))}
+			</Td>
+			<Td>
+				{data.map((item) => (
+					<div
+						key={item.user}
+						style={{
+							color:
+								item.status === "Pending"
+									? "orange"
+									: item.status === "Scheduled"
+										? "blue"
+										: "green",
+						}}
+					>
+						{item.status}
+					</div>
+				))}
+			</Td>
+			<Td>
+				{data.map((item) => (
+					<div key={item.user}>
+						{item.date_schedule ? item.date_schedule : "Schedule pending"}
+					</div>
+				))}
+			</Td>
+			<Td>
+				{data.map((item) => (
+					<div key={item.user}>R${item.freight}</div>
+				))}
+			</Td>
+			<Td>
+				{data.map((item) => (
+					<div key={item.user}>{item.address}</div>
+				))}
+			</Td>
+			<Td>
+				<a
+					href="https://maps.app.goo.gl/m36EPzndaKpikfBd7"
+					style={{ textDecoration: "underline", color: "blue" }}
+					target="blank"
+				>
+					View route
+				</a>
+			</Td>
 		</Tr>
 	);
 };

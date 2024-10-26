@@ -32,7 +32,7 @@ export const RankTable = () => {
 		{
 			id: "1",
 			name: "John Doe",
-			level: 5,
+			level: 10,
 			points: 1000,
 			quantityPickup: 50,
 		},
@@ -53,21 +53,21 @@ export const RankTable = () => {
 		{
 			id: "4",
 			name: "Emily Davis",
-			level: 2,
+			level: 3,
 			points: 400,
 			quantityPickup: 20,
 		},
 		{
 			id: "5",
 			name: "David Miller",
-			level: 1,
+			level: 3,
 			points: 200,
 			quantityPickup: 10,
 		},
 		{
 			id: "7",
 			name: "Benjamin Nelson",
-			level: 4,
+			level: 2,
 			points: 900,
 			quantityPickup: 45,
 		},
@@ -81,43 +81,43 @@ export const RankTable = () => {
 		{
 			id: "9",
 			name: "William Anderson",
-			level: 3,
+			level: 2,
 			points: 700,
 			quantityPickup: 35,
 		},
-		{ id: "10", name: "Ava Lee", level: 1, points: 150, quantityPickup: 5 },
+		{ id: "10", name: "Ava Lee", level: 2, points: 150, quantityPickup: 5 },
 		{
 			id: "11",
 			name: "Ethan Thomas",
-			level: 5,
+			level: 2,
 			points: 1100,
 			quantityPickup: 55,
 		},
 		{
 			id: "12",
 			name: "Charlotte Walker",
-			level: 0,
+			level: 2,
 			points: 0,
 			quantityPickup: 0,
 		},
 		{
 			id: "13",
 			name: "James Wright",
-			level: 3,
+			level: 1,
 			points: 650,
 			quantityPickup: 32,
 		},
 		{
 			id: "14",
 			name: "Mia Allen",
-			level: 2,
+			level: 0,
 			points: 380,
 			quantityPickup: 18,
 		},
 		{
 			id: "15",
 			name: "Noah Campbell",
-			level: 4,
+			level: 0,
 			points: 850,
 			quantityPickup: 42,
 		},
@@ -156,7 +156,6 @@ export const RankTable = () => {
 							<THead text="Rank" />
 							<THead text="Name" />
 							<THead text="Level" />
-							<THead text="Points" />
 						</Tr>
 					</Thead>
 					<Tbody>
