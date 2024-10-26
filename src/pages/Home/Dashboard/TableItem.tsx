@@ -41,7 +41,7 @@ export const TableItemGrouped: React.FC<{ data: DashboardProps[] }> = ({
 			</Td>
 			<Td>
 				<a
-					href="https://maps.app.goo.gl/m36EPzndaKpikfBd7"
+					href="https://maps.app.goo.gl/ptTuYuRTVqmTXpdc6"
 					style={{ textDecoration: "underline", color: "blue" }}
 				>
 					Ver Rota
