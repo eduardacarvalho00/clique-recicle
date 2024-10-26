@@ -1,18 +1,12 @@
 import { Tr, Td } from "@chakra-ui/react";
 import { DashboardProps } from "@interfaces/dashboard";
 
-interface TableItemProps {
-	data: DashboardProps[];
-}
-
-export const TableItem = ({ data }: TableItemProps) => {
+export const TableItemGrouped: React.FC<{ data: DashboardProps[] }> = ({
+	data,
+}) => {
 	return (
 		<Tr>
-			<Td>
-				{data.map((item) => (
-					<div key={item.user}>{item.date}</div>
-				))}
-			</Td>
+			<Td>{data[0].date}</Td>
 			<Td>
 				{data.map((item) => (
 					<div key={item.user}>{item.user}</div>
@@ -22,14 +16,7 @@ export const TableItem = ({ data }: TableItemProps) => {
 				{data.map((item) => (
 					<div
 						key={item.user}
-						style={{
-							color:
-								item.status === "Pending"
-									? "orange"
-									: item.status === "Scheduled"
-										? "blue"
-										: "green",
-						}}
+						style={{ color: item.status === "Pending" ? "red" : "green" }}
 					>
 						{item.status}
 					</div>
@@ -56,11 +43,27 @@ export const TableItem = ({ data }: TableItemProps) => {
 				<a
 					href="https://maps.app.goo.gl/m36EPzndaKpikfBd7"
 					style={{ textDecoration: "underline", color: "blue" }}
-					target="blank"
 				>
-					View route
+					Ver Rota
 				</a>
 			</Td>
+		</Tr>
+	);
+};
+
+// Componente para exibir itens individuais sem routeId
+export const TableItem: React.FC<{ data: DashboardProps }> = ({ data }) => {
+	return (
+		<Tr>
+			<Td>{data.date}</Td>
+			<Td>{data.user}</Td>
+			<Td style={{ color: data.status === "Pending" ? "red" : "green" }}>
+				{data.status}
+			</Td>
+			<Td>{data.date_schedule ? data.date_schedule : "Schedule pending"}</Td>
+			<Td>R${data.freight}</Td>
+			<Td>{data.address}</Td>
+			<Td>No route generated</Td>
 		</Tr>
 	);
 };

@@ -1,5 +1,5 @@
 export interface DashboardProps {
-  routeId: number;
+  routeId?: number;
   user: string;
   date: string;
   status: "Pending" | "Scheduled" | "Done";

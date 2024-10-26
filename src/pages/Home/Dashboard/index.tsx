@@ -11,7 +11,7 @@ import {
 	Text,
 	Button,
 } from "@chakra-ui/react";
-import { TableItem } from "./TableItem";
+import { TableItem, TableItemGrouped } from "./TableItem";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import { DashboardProps } from "@interfaces/dashboard";
 
@@ -64,7 +64,6 @@ export const Dashboard = () => {
 			address: "Avenida Paulista, 1011 - São Paulo/SP",
 		},
 		{
-			routeId: 2,
 			user: "Carlos Pereira",
 			date: "08/12/2024",
 			status: "Pending",
@@ -89,7 +88,6 @@ export const Dashboard = () => {
 			address: "Avenida Central, 1717 - São Paulo/SP",
 		},
 		{
-			routeId: 2,
 			user: "Luiza Silva",
 			date: "08/12/2024",
 			status: "Pending",
@@ -123,7 +121,6 @@ export const Dashboard = () => {
 			address: "Avenida Paulista, 1011 - São Paulo/SP",
 		},
 		{
-			routeId: 2,
 			user: "Carlos Pereira",
 			date: "08/12/2024",
 			status: "Pending",
@@ -148,7 +145,6 @@ export const Dashboard = () => {
 			address: "Avenida Central, 1717 - São Paulo/SP",
 		},
 		{
-			routeId: 2,
 			user: "Luiza Silva",
 			date: "08/12/2024",
 			status: "Pending",
@@ -182,7 +178,6 @@ export const Dashboard = () => {
 			address: "Avenida das Américas, 2525 - São Paulo/SP",
 		},
 		{
-			routeId: 4,
 			date_schedule: "10/25/2024",
 			user: "Juliana Silva",
 			date: "08/12/2024",
@@ -191,7 +186,6 @@ export const Dashboard = () => {
 			address: "Rua da Vitória, 2727 - São Paulo/SP",
 		},
 		{
-			routeId: 4,
 			user: "Felipe Almeida",
 			date: "08/12/2024",
 			status: "Pending",
@@ -208,7 +202,6 @@ export const Dashboard = () => {
 			address: "Rua da Paz, 3131 - São Paulo/SP",
 		},
 		{
-			routeId: 2,
 			user: "Gabriel Costa",
 			date: "08/12/2024",
 			status: "Pending",
@@ -225,18 +218,29 @@ export const Dashboard = () => {
 		},
 	];
 
-	type GroupedData = Record<number, DashboardProps[]>;
+	type GroupedData = {
+		withRouteId: Record<number, DashboardProps[]>;
+		withoutRouteId: DashboardProps[];
+	};
 
 	// Função para agrupar os dados por routeId
 	const groupDataByRouteId = (data: DashboardProps[]): GroupedData => {
-		return data.reduce<GroupedData>((acc, item) => {
-			if (!acc[item.routeId]) acc[item.routeId] = []; // Se não existe o routeId, inicializa como array vazio
-			acc[item.routeId].push(item); // Adiciona o item ao array do routeId
-			return acc;
-		}, {});
+		return data.reduce<GroupedData>(
+			(acc, item) => {
+				if (item.routeId !== undefined) {
+					if (!acc.withRouteId[item.routeId])
+						acc.withRouteId[item.routeId] = [];
+					acc.withRouteId[item.routeId].push(item);
+				} else {
+					acc.withoutRouteId.push(item);
+				}
+				return acc;
+			},
+			{ withRouteId: {}, withoutRouteId: [] },
+		);
 	};
 
-	const groupedData = groupDataByRouteId(mockUsersRank);
+	const { withRouteId, withoutRouteId } = groupDataByRouteId(mockUsersRank);
 	return (
 		<>
 			<TableContainer
@@ -277,9 +281,21 @@ export const Dashboard = () => {
 						</Tr>
 					</Thead>
 					<Tbody>
-						{Object.values(groupedData).map((group, index) => (
+						{/* Renderiza grupos de dados com routeId */}
+						{Object.values(withRouteId).map((group, index) => (
 							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-							<TableItem key={index} data={group} />
+							<TableItemGrouped key={index} data={group} />
+						))}
+
+						{/* Renderiza itens sem routeId */}
+						{withoutRouteId.map((item, index) => (
+							<TableItem
+								key={`no-route-${
+									// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+									index
+								}`}
+								data={item}
+							/>
 						))}
 					</Tbody>
 				</Table>
