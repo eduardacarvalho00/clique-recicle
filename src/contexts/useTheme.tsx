@@ -20,7 +20,7 @@ type ThemeContextData = {
 
 const ThemeContext = createContext({} as ThemeContextData);
 
-const THEME_KEY = "@ecollect_theme";
+const THEME_KEY = "@clickerecicle_theme";
 
 export const ThemeProvider = ({ children }: ThemeContextProps) => {
 	const themeFromStorage = localStorage.getItem(THEME_KEY);

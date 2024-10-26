@@ -22,7 +22,7 @@ export function Home() {
 
 	return (
 		<Flex flexDir="column" h="100vh" bg="background.primary">
-			<title>Ecollect</title>
+			<title>Clique&Recicle</title>
 			<Header />
 			<VStack mt="1rem" h="75%">
 				<Tabs w="100%" isFitted colorScheme="green" bg="transparent" h="100%">
